@@ -1,0 +1,5 @@
+body { margin: 0; text-align: center; }
+header { background-color: rgb(143, 143, 197); color: white; padding: 10px; margin-bottom: 25px; }
+ol { padding-left: 0; list-style-type: none; display: table; margin: 0 auto; }
+li {padding-block: 4px;}
+span {color: black;}
