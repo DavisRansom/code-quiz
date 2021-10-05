@@ -1,5 +1,6 @@
-//when the user hits a button to begin the game, a timer begins
+
 //Then users are asked random questions from an array, about the book Ready Player One
+//The question is displayed in the question text area
 //The user inputs their answer by choosing from a multiple-choice area
 //When a user misses a question the timer goes down by an additional 5 seconds
 //Every time a user gets a question correct, they add +10 to their score total
@@ -13,10 +14,13 @@ const timeElement = document.querySelector("time"),
     nameInput = document.querySelector("input"),
     startButton = document.querySelector("button");
 
-
 //settings
 const secondsForEachQuestion = 10;
+const pointsPerCorrectAnswer = 10;
+const pointsPerIncorrectAnswer = -5;
 
+var userScore = 0;
+var userAnswer = Boolean;
 
 //state variables
 var timeRemaining,
@@ -26,7 +30,7 @@ var timeRemaining,
 startButton.addEventListener("click", setup);
 //and on start button click the question will appear in the question box
 
-//event listeners for each answer choice that runs a function that 
+//event listeners for each answer choice that runs a function that: 
 //1. signals whether or not the user got it correct or not (and possibly the correct answer and interesting fact about question) 
 //and 2. adds points to the user score or not
 //       Button.addEventListener("click",         );
@@ -43,6 +47,7 @@ function setup() {
     updateTimeRemaining();
     //start timer
     timer = setInterval(tick, 1000); //run the tick() function every second
+    //Input a random question from the array into the main h2 area 
 }
 
 
@@ -58,8 +63,10 @@ function endGame() {
     clearInterval(timer);
     //and switch states from quizmode to not quizmode
     document.body.classList.remove("quizmode");
-}
+    //and then store score in localstorage and/or High Scorers list
+    //.localstorage
 
+}
 
 //timer controller
 function tick() {
@@ -74,7 +81,6 @@ function tick() {
 //subtract time (5 seconds) if the user misses a question???
 
 //data - questions 
-//Do I need a larger array??
 
 const questions = [
     {
@@ -105,40 +111,48 @@ const questions = [
         ]
     },
     {
-        q: "Question 4",
+        q: "How much does it cost to purchase the immersive virtual reality experience from Ready Player One",
         a: [
-            "Answer 1",
-            "Answer 2",
-            "Answer 3",
-            "Answer 4"
+            "$1",
+            "$299.99",
+            "25 cents",
+            "$999.99"
         ]
     },
     {
-    q: "Question 5",
+        q: "In Ready Player One, why do people immerse themselves in virtual reality",
         a: [
-            "Answer 1",
-            "Answer 2",
-            "Answer 3",
-            "Answer 4"
+            "The world has gone to shambles",
+            "They can be or do anything they want",
+            "Their avatars can become incredibly powerful",
+            "All of the above"
         ]
     },
     {
-    q: "Question 6",
-    a: [
-        "Answer 1",
-        "Answer 2",
-        "Answer 3",
-        "Answer 4"
-    ]
-    }   
+        q: "What is the ultimate prize for winning The Contest",
+        a: [
+            "Making Holliday proud",
+            "Solving The Earth's energy crisis",
+            "A lot of money and control over the virtual reality system",
+            "Superpowers within the virtual reality system"
+        ]
+    }
 ];
 
 
 //shuffle the questions
 function shuffle(arr) {
     //make a copy of arr
-    const clone = [...arr];} //"shallow clone"
-	//return a randomly rearranged version of the array above//
+    const clone = [...arr];
+} //"shallow clone"
+//return a randomly rearranged version of the array above//
+
+function addScore ()
+    if (userAnswer = true) {
+        userScore + pointsPerCorrectAnswer}
+
+//adds 10 points to the User Score
+
 
     //stores the user score in the list of high scorers
     //and loads the top 3 scorers after the game is over
