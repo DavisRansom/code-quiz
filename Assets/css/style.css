@@ -1,5 +1,7 @@
 body { margin: 0; text-align: center; }
-header { background-color: rgb(143, 143, 197); color: white; padding: 10px; margin-bottom: 25px; }
+header { background-color: white; color: black; padding: 10px; margin-bottom: 25px; }
 ol { padding-left: 0; list-style-type: none; display: table; margin: 0 auto; }
 li {padding-block: 4px;}
-span {color: black;}
+span {color: red;}
+img {padding: 2px; border: 2px, black; width: 450px; height: 160px}
+#books {padding: 2px; border: 2px, black; width: 250px; height: 250px}

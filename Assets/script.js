@@ -1,9 +1,10 @@
 //when the user hits a button to begin the game, a timer begins
-//Then users are asked questions about the book Ready Player One
+//Then users are asked random questions from an array, about the book Ready Player One
 //The user inputs their answer by choosing from a multiple-choice area
 //When a user misses a question the timer goes down by an additional 5 seconds
 //Every time a user gets a question correct, they add +10 to their score total
 //When the timer gets to 0, a message that says "Game Over" comes up
+//Another message comes up saying "Congratulations! Your score is:   ."
 //The top 3 scorers are kept in localstorage for someone to try to beat again
 
 //html elements
@@ -21,9 +22,14 @@ const secondsForEachQuestion = 10;
 var timeRemaining,
     timer;
 
-
-//event listeners
+//event listener to setup and start the game
 startButton.addEventListener("click", setup);
+//and on start button click the question will appear in the question box
+
+//event listeners for each answer choice that runs a function that 
+//1. signals whether or not the user got it correct or not (and possibly the correct answer and interesting fact about question) 
+//and 2. adds points to the user score or not
+//       Button.addEventListener("click",         );
 
 
 //setup game
@@ -40,17 +46,17 @@ function setup() {
 }
 
 
-//what the user sees
+//what the user sees with the timer
 function updateTimeRemaining() {
     timeElement.textContent = timeRemaining;
 }
 
 
-//quiz controller
+//quiz controller - end the game
 function endGame() {
     //stop timer
     clearInterval(timer);
-    //update view
+    //and switch states from quizmode to not quizmode
     document.body.classList.remove("quizmode");
 }
 
@@ -59,14 +65,17 @@ function endGame() {
 function tick() {
     //decrement timeRemaining
     timeRemaining = Math.max(0, timeRemaining - 1);
-    //check for time expired
+    //check for time expired and if time is up, end the game
     if (timeRemaining === 0) endGame();
-    //update view
+    //update user view
     updateTimeRemaining();
 }
 
+//subtract time (5 seconds) if the user misses a question???
 
-//data (questions)
+//data - questions 
+//Do I need a larger array??
+
 const questions = [
     {
         q: "Who is the main character's love interest?",
@@ -78,28 +87,58 @@ const questions = [
         ]
     },
     {
-        q: "What's the answer (2)?",
+        q: "What is the name of the main character in the book?",
         a: [
-            "Correct",
-            "Incorrect",
-            "Wrong",
-            "Dead wrong"
+            "Norah Jones",
+            "Wade Watts",
+            "Juliet o'Day",
+            "Captain Obvious"
         ]
     },
     {
-        q: "What's the answer (3)?",
+        q: "What is the virtual reality experience that people spend most of their time in, called?",
         a: [
-            "Correct",
-            "Incorrect",
-            "Wrong",
-            "Dead wrong"
+            "The Immaculata",
+            "Decentraland",
+            "The Metaverse",
+            "The Oasis"
         ]
-    }
+    },
+    {
+        q: "Question 4",
+        a: [
+            "Answer 1",
+            "Answer 2",
+            "Answer 3",
+            "Answer 4"
+        ]
+    },
+    {
+    q: "Question 5",
+        a: [
+            "Answer 1",
+            "Answer 2",
+            "Answer 3",
+            "Answer 4"
+        ]
+    },
+    {
+    q: "Question 6",
+    a: [
+        "Answer 1",
+        "Answer 2",
+        "Answer 3",
+        "Answer 4"
+    ]
+    }   
 ];
 
 
-//helper (library)
+//shuffle the questions
 function shuffle(arr) {
     //make a copy of arr
     const clone = [...arr];} //"shallow clone"
 	//return a randomly rearranged version of the array above//
+
+    //stores the user score in the list of high scorers
+    //and loads the top 3 scorers after the game is over
