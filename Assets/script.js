@@ -56,6 +56,18 @@ function updateTimeRemaining() {
     timeElement.textContent = timeRemaining;
 }
 
+var userScore = 0;
+var userAnswer = Boolean;
+
+function updateUserScore() {
+    userScore.textContent = userTotalScore;
+}
+
+function addScore()
+if (userAnswer = true) {
+    userScore + pointsPerCorrectAnswer
+}
+
 
 //quiz controller - end the game
 function endGame() {
@@ -64,7 +76,7 @@ function endGame() {
     //and switch states from quizmode to not quizmode
     document.body.classList.remove("quizmode");
     //and then store score in localstorage and/or High Scorers list
-    //.localstorage
+
 
 }
 
@@ -147,9 +159,7 @@ function shuffle(arr) {
 } //"shallow clone"
 //return a randomly rearranged version of the array above//
 
-function addScore ()
-    if (userAnswer = true) {
-        userScore + pointsPerCorrectAnswer}
+
 
 //adds 10 points to the User Score
 
