@@ -20,7 +20,6 @@ const pointsPerCorrectAnswer = 10;
 const pointsPerIncorrectAnswer = -5;
 
 var userScore = 0;
-var userAnswer = Boolean;
 
 //state variables
 var timeRemaining,
@@ -34,7 +33,6 @@ startButton.addEventListener("click", setup);
 //1. signals whether or not the user got it correct or not (and possibly the correct answer and interesting fact about question) 
 //and 2. adds points to the user score or not
 //       Button.addEventListener("click",         );
-
 
 //setup game
 function setup() {
@@ -56,16 +54,16 @@ function updateTimeRemaining() {
     timeElement.textContent = timeRemaining;
 }
 
-var userScore = 0;
-var userAnswer = Boolean;
-
 function updateUserScore() {
     userScore.textContent = userTotalScore;
 }
 
-function addScore()
-if (userAnswer = true) {
-    userScore + pointsPerCorrectAnswer
+function addScore() {
+if (userAnswer === true) {
+    userScore + pointsPerCorrectAnswer === userScore}
+
+
+    document.getElementById("quizQuestion").innerHTML = ;
 }
 
 
@@ -107,8 +105,8 @@ const questions = [
     {
         q: "What is the name of the main character in the book?",
         a: [
-            "Norah Jones",
             "Wade Watts",
+            "Nora Wade",
             "Juliet o'Day",
             "Captain Obvious"
         ]
@@ -116,36 +114,36 @@ const questions = [
     {
         q: "What is the virtual reality experience that people spend most of their time in, called?",
         a: [
-            "The Immaculata",
+            "The Oasis",
             "Decentraland",
             "The Metaverse",
-            "The Oasis"
+            "The Immaculata"
         ]
     },
     {
         q: "How much does it cost to purchase the immersive virtual reality experience from Ready Player One",
         a: [
-            "$1",
-            "$299.99",
             "25 cents",
+            "$299.99",
+            "$1",
             "$999.99"
         ]
     },
     {
         q: "In Ready Player One, why do people immerse themselves in virtual reality",
         a: [
-            "The world has gone to shambles",
+            "All of the above",
             "They can be or do anything they want",
             "Their avatars can become incredibly powerful",
-            "All of the above"
+            "The world has gone to shambles"
         ]
     },
     {
         q: "What is the ultimate prize for winning The Contest",
         a: [
-            "Making Holliday proud",
+            "A lot of money and control over The Oasis",
             "Solving The Earth's energy crisis",
-            "A lot of money and control over the virtual reality system",
+            "Becoming CEO of The Sixers",
             "Superpowers within the virtual reality system"
         ]
     }
@@ -159,9 +157,6 @@ function shuffle(arr) {
 } //"shallow clone"
 //return a randomly rearranged version of the array above//
 
-
-
-//adds 10 points to the User Score
 
 
     //stores the user score in the list of high scorers
