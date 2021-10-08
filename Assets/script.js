@@ -11,7 +11,7 @@ const timeElement = document.querySelector("time"),
     main = document.querySelector("main"),
     nameInput = document.querySelector("input"),
     startButton = document.querySelector("button");
-    highScoreOL = document.querySelector("footer ol");
+highScoreOL = document.querySelector("footer ol");
 
 //settings
 const secondsForEachQuestion = 10;
@@ -69,13 +69,13 @@ function renderQuestion() {
 
 function renderHighScores() {
     const data = getHighScores();
-    console.log (data)
+    console.log(data)
     var html = "";
     if (!data.length) {
         html = `<li>Good Job!</li>`;
     }
     else {
-        for (let i=0; i<3; i++) {
+        for (let i = 0; i < 3; i++) {
             html += `<li>${data[i].name}: ${data[i].score}</li>`;
         }
     }

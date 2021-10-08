@@ -32,4 +32,3 @@ I would like to thank my tutors, Ian and Dane, for helping me to make sense of w
 Photo by <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hello I'm Nik</a> on <a href="https://unsplash.com/s/photos/ready-player-one?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 Photo by <a href="https://unsplash.com/@element5digital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Element5 Digital</a> on <a href="https://unsplash.com/s/photos/scoreboard?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
