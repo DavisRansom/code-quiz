@@ -11,7 +11,7 @@ const timeElement = document.querySelector("time"),
     main = document.querySelector("main"),
     nameInput = document.querySelector("input"),
     startButton = document.querySelector("button");
-highScoreOL = document.querySelector("footer OL");
+    highScoreOL = document.querySelector("footer ol");
 
 //settings
 const secondsForEachQuestion = 10;
@@ -28,7 +28,7 @@ var timeRemaining,
 //event listener to setup and start the game
 startButton.addEventListener("click", setup);
 //show the current High Scorers
-renderHighScores()
+//renderHighScores()
 //setup game
 function setup() {
     //make sure game has not already started
@@ -54,31 +54,34 @@ function renderQuestion() {
     let question = questions[currentQuestionIndex],
         answers = shuffle(question.a),
         html = `
-            < h2 > ${question.q}</h2>
+            <h2> ${question.q}</h2>
                 <ol>
                     `;
     for (let a of answers) {
-        html += '<li><button>${a}</button></li>';
+        html += `<li><button>${a}</button></li>`;
     }
-    html = + "</ol>";
+    html += "</ol>";
     main.innerHTML = html; //converting string to actual html elements
     for (let button of main.querySelectorAll("button")) {
         button.addEventListener("click", handleUserAnswer);
     }
 }
+
 function renderHighScores() {
     const data = getHighScores();
+    console.log (data)
     var html = "";
     if (!data.length) {
-        html = "<li>No High Scorers Yet</li>";
+        html = `<li>Good Job!</li>`;
     }
     else {
-        for (let datum of data) {
-            html = + '<li>${datum.name}: ${datum.score}</li>';
+        for (let i=0; i<3; i++) {
+            html += `<li>${data[i].name}: ${data[i].score}</li>`;
         }
     }
     highScoreOL.innerHTML = html;
 }
+
 //quiz controller - end the game
 function endGame() {
     //stop timer
@@ -86,34 +89,34 @@ function endGame() {
     //update view and switch states from quizmode to not quizmode
     document.body.classList.remove("quizmode");
     //score handling
-    score = + timeRemaining;
+    score = timeRemaining;
     const name = nameInput.value.trim();
     if (name) {
         addHighScore(name, score);
         renderHighScores();
     }
 }
+
 function handleUserAnswer(e) {
     //e.target.textContent is the text in the button that the user just clicked on
     const userAnswer = e.target.textContent,
         correctAnswer = questions[currentQuestionIndex].a[0];
     if (userAnswer === correctAnswer) {
-        score = + scoreBonus;
+        score += pointsPerCorrectAnswer;
     }
     else {
         //wrong
-        timeRemaining = + timePenalty;
+        timeRemaining += timePenalty;
     }
     //advance to next question if there is one
     currentQuestionIndex++;
-    if (currentQuestionIndex > questions.length) {
+    if (currentQuestionIndex === questions.length) {
         endGame();
     }
     else {
         renderQuestion();
     }
 }
-
 
 //timer controller
 function tick() {
@@ -124,6 +127,7 @@ function tick() {
     //check for time expired and if time is up, end the game
     if (timeRemaining === 0) endGame();
 }
+
 //data - questions 
 const questions = [
     {
