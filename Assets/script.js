@@ -97,6 +97,7 @@ function endGame() {
         addHighScore(name, score);
         renderHighScores();
     }
+    alert ("Great job! Check to see if you made it to The Scoreboard")
 }
 
 function handleUserAnswer(e) {

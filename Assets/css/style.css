@@ -7,4 +7,4 @@ img {padding: 2px; border: 2px, black; width: 450px; height: 160px}
 main { display: none; }
 .quizmode main { display: block; }
 .quizmode footer { display: none; }
-li {padding-left: 2px; padding-right: 2px; padding-bottom: 4px; padding-top: 4px;}
+li {padding-left: 0px; padding-right: 0px; padding-top: 4px; padding-bottom: 4px;}
