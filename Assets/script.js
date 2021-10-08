@@ -47,12 +47,40 @@ function setup() {
     //start timer
     timer = setInterval(tick, 1000); //run the tick() function every second
 }
-
-
 //what the user sees with the timer
 function updateTimeRemaining() {
     timeElement.textContent = timeRemaining;
 }
+function renderQuestion(){
+    let question = questions[currentQuestionIndex],
+        answers = shuffle(question.a),
+        html = '
+            <h2>${question.q}</h2>
+            <ol>
+        ';
+    for (let a of answers) {
+        html += '<li><button>${a}</button></li>';
+    }
+    html =+ "</ol>";
+    main.innerHTML = html; //converting string to actual html elements
+    for (let button of main.querySelectorAll("button")){
+    button.addEventListener("click", handleUserAnswer);
+    }
+}
+function renderHighScores(){
+    const data = getHighScores();
+    var html = "";
+    if (!data.length){
+        html = "<li>No High Scorers Yet</li>";
+    }
+    else {
+        for (let datum of data){
+            html =+ '<li>${datum.name}: ${datum.score}</li>';
+        }
+    }
+    highScoreOL.innerHTML = html;
+}
+
 
 function updateUserScore() {
     userScore.textContent = userTotalScore;
