@@ -11,7 +11,7 @@ const timeElement = document.querySelector("time"),
     main = document.querySelector("main"),
     nameInput = document.querySelector("input"),
     startButton = document.querySelector("button");
-highScoreOL = document.querySelector("footer ol");
+    highScoreOL = document.querySelector("footer ol");
 
 //settings
 const secondsForEachQuestion = 10;
@@ -30,6 +30,7 @@ startButton.addEventListener("click", setup);
 //show the current High Scorers
 //renderHighScores()
 //setup game
+
 function setup() {
     //make sure game has not already started
     if (document.body.classList.contains("quizmode")) return;
@@ -45,6 +46,7 @@ function setup() {
     //start timer
     timer = setInterval(tick, 1000); //run the tick() function every second
 }
+
 //what the user sees with the timer, questions, and high scorers list
 function updateTimeRemaining() {
     timeElement.textContent = timeRemaining;
@@ -184,7 +186,8 @@ const questions = [
             "Superpowers within the virtual reality system"
         ]
     }
-];
+]
+
 //data handling (localStorage)
 function addHighScore(name, score) {
     const data = getHighScores();

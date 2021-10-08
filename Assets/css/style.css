@@ -1,9 +1,10 @@
-body { margin: 0; text-align: center; }
+body { margin: 0; text-align: center; background-color: lightblue;}
 header { background-color: white; color: black; padding: 10px; margin-bottom: 25px; }
-ol { padding-left: 0; list-style-type: none; display: table; margin: 0 auto; }
+ol { padding-left: 0px; list-style-type: none; display: table; margin: 0 auto;}
 span {color: red;}
 img {padding: 2px; border: 2px, black; width: 450px; height: 160px}
 #books {padding: 2px; border: 2px, black; width: 250px; height: 250px}
 main { display: none; }
 .quizmode main { display: block; }
 .quizmode footer { display: none; }
+li {padding-left: 2px; padding-right: 2px; padding-bottom: 4px; padding-top: 4px;}
