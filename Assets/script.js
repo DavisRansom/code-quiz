@@ -30,6 +30,7 @@ startButton.addEventListener("click", setup);
 //show the current High Scorers
 //renderHighScores()
 //setup game
+alert ("Ready Player One?")
 
 function setup() {
     //make sure game has not already started
@@ -97,7 +98,7 @@ function endGame() {
         addHighScore(name, score);
         renderHighScores();
     }
-    alert ("Great job! Check to see if you made it to The Scoreboard")
+    alert ("Not bad! Play again to see if you can make it onto The Scoreboard?")
 }
 
 function handleUserAnswer(e) {
