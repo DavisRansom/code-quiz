@@ -31,6 +31,7 @@ startButton.addEventListener("click", setup);
 //renderHighScores()
 //setup game
 alert ("Ready Player One?")
+alert ("If it your first time here, try 3 times to see your scores")
 
 function setup() {
     //make sure game has not already started
